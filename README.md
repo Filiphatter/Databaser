@@ -42,6 +42,12 @@ noSQL, lagrar data i flexibla dokument exempelvis json. Bra för komplex och var
 - foregin key
 kan kombineras med regler för säkrar information och hur lagring sker.
 
+### acid 
+a - atomiskt - odelbar (all data kommer eller ingen ifall av en krash eller liknande.
+c - consistency - inga motsägelser med constraints
+i - isolation - ofta sker saker i databasen samtidigt, isolation menas att om man skriver saker samtidigt så ska db göra det som om de kom en efter en
+d - durability - om en krash sker så ska db hålla och informationen antingen ges eller inget alls.
+
 ### sammanfattning
 - modell: relationell, document olika former av databaser och intergration
 - DBMS: exempelvis SQLite och MySQL, språk för kommunicera med en databas eg SQL som kommunicerar med den relationel db
@@ -57,7 +63,7 @@ kan kombineras med regler för säkrar information och hur lagring sker.
 - Select
 väljer x
 
-- *
+- * (stjärna)
 väljer alla
 
 SELECT first_name, last_name, FROM patients WHERE gender="m"
@@ -65,3 +71,67 @@ SELECT first_name, last_name, FROM patients WHERE gender="m"
 SELECT first_name, last_name, 
 FROM patients 
 WHERE gender="m"
+
+### data language
+Data definition language - används vid skapande av db och tabeller, eg create table, create database
+Data management language - select o något
+Data manipulation language - 
+
+### skapa databas
+för kunna lägga in något i databasen behövs den skapas, skapas med CREATE DATABASE namn
+Sedan så behöver man välja vilken man vill använda, körs med USE
+Efter så skapar man table genom CREATE TABLE namn (kolumn_namn datatyp PRIMARY KEY, kolumn_namn2 datatyp (constraints) etc)
+DROP TABLE namn så tar man bort allt
+för kunna ändra eller tabort i tabeller så gör man ALTER TABLE namn ADD age NUMBER; ALTER TABLE name DROP age; lägger till age och tar bort
+
+### Constraints
+not null - column kan inte ha ett null värde
+unique - alla values i column är olika
+primary key - en kombination av not null o unique, idefierar varje rad
+forgein key - preventerar att handlingar förstör länkar mellan tables
+check - säkerställer värde i column klarar sina conditions
+default - sätter default value för en column om inget annat sätts
+create index - 
+
+primär nycklar som ska vara unika kan man köra med auto increment, alltså den kommer självmant öka id i primary key om man lägger till fler "element" här är ett ex
+CREATE TABLE persons (
+id integer PRIMARY KEY AUTOINCREMENT
+email varchar(50)
+name varchar(50)
+);
+
+### CRUD
+
+#### create = insert
+INSERT INTO tabellnamn VALUES (värde_1, värde_2 etc) 
+exempel: INSERT INTO tabellnamn(users) VALUES (2, "bill");
+
+#### read = select
+SELECT * (stjärna) hämtar allt från tabellnan
+SELECT namn FROM tabellnan för enskild
+
+- WHERE
+för filtrera ut specifikka rad(er) så använder vi nyckelordet WHERE
+ex SELECT * FROM tabellnamn WHERE id > 3;
+
+- LIKE
+vi kan använda WHERE där en koluimn ska innehålla vissa tecken så kan vi använda LIEK och wildcard tecken % och _
+ex SELECT * FROM tabellnamn WHERE name LIKE `B%´; 
+hämtar innehållet ifrån alla kolumner från raden där kolumn namn börjar på B
+om man gör "_b%" så ignorerar den första bokstaven och tar upp dem med b som andra bokstav 
+
+#### UPDATE 
+vill vi updatera befintligt information så använder vi kommandot UPDATE och nyckelordet SET
+man ska alltid använda WHERE för att specifiera vad som ska uppdateras annars kommer ALLA rader att updateras
+ex UPDATE users SET age = 43 WHERE id = 2; updaterar users på kolumn age till 43 på id 2 alltså rad 2.
+vill man göra fler kan man göra så här
+UPDATE users SET age = 43, name = "billy" WHERE id = 3; så updaterar vi flera kolumner samtidigt
+
+#### DELETE
+för ta bort rader använder vi DELETE
+eg DELETE FROM tabellnamn WHERE id = 1; sätt filter med WHERE annars tas allt bort
+DROP tar bort allt från tabellen medans DELETE enbart tar bort innehåll.
+
+
+
+
