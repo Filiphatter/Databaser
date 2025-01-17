@@ -133,5 +133,18 @@ eg DELETE FROM tabellnamn WHERE id = 1; sätt filter med WHERE annars tas allt b
 DROP tar bort allt från tabellen medans DELETE enbart tar bort innehåll.
 
 
+### Relationer
+ofta bra att göra flödesdiagram med relationer för struktur och lite bild hur man ska göra
+
+Man brukar ofta dela upp relationer i kategorier
+- one to one, relation till en relation
+- one to many, en relation till många, exempelvis en person kan äga flera bilar
+- many to many, Man kan bo i flera hus med olika medlemmar i båda husen
+ 
+här är ett exempel på ovan https://gyazo.com/a27a090e19c6c81cc357b17f1c504dd6
+även i DATABAS filen jaja du hittar när du behöver 4head
+
+
+
 
 
