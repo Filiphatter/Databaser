@@ -144,6 +144,39 @@ Man brukar ofta dela upp relationer i kategorier
 här är ett exempel på ovan https://gyazo.com/a27a090e19c6c81cc357b17f1c504dd6
 även i DATABAS filen jaja du hittar när du behöver 4head
 
+#### Vikten av relationer
+Relationella databaser hjälper oss att modellera kopplingare mellan olika typer av data. Relationer säkerställer att datan förblir konsistent
+och förhindrar fel. Möjliggör även effektiv organisering och ingen duplicering av data. Tillåter komplexa sökningar.
+Detta sker genom primärnyckel som unikt identifierar varje rad, tabeller kopplas ihop genom främmande nycklar. 
+Främmande nyckel (FK) refererar till en annan tabells PK. 
+
+### Normalisering
+Normalisering handlar om att strukturera sin databas smart, genom exempelvis återanvändbara funktioner istället för allt i samma klump.
+Alltså slippa upprepa samma data på flera ställen, undvika buggar när data uppdateras, enklare att ändra i databasen för senare tillfälle.
+Används när information upprepas eller används på flera ställen, för möjlighet att uppdatera och undvika inkonsekvens.
+
+#### Onormaliserat exempel
+https://gyazo.com/4db6a8329a7460db4dfe755d47a2c3a4
+
+#### Normaliserat exempel
+https://gyazo.com/48fdb3b739113716d6c52ab36d4d7f3f
+Fördelen här är att man kan uppdatera kundens mail på ett ställe, samt produktpris på ett ställe
+Minimerar chansen för fel och sparar lagringsutrymme och skapar optimisation.
+
+### Första normalformen 1NF
+Varje cell ska innehålla ett värde
+Exempelvis https://gyazo.com/c5217c5f6f24a8b07a1593611bd31ef1
+Man gör detta för lättare fylla i och förändra i tabellen, även bidrar med mindre möjlighet att det blir fel.
+
+### Andra normalformen 2NF
+All information ska vara kopplad till rätt kolumn, alltså relaterad information i egna tabeller 
+https://gyazo.com/64e118a6387a7c1304cc4718551cfa97
+
+### Tredje Normalformen 3NF
+Information som hör ihop ska vara i samma tabell.
+https://gyazo.com/8842d9f1ca6b36bdaf196c26e33870c0 
+
+
 
 
 
