@@ -177,6 +177,26 @@ Information som hör ihop ska vara i samma tabell.
 https://gyazo.com/8842d9f1ca6b36bdaf196c26e33870c0 
 
 
+## SQL Joins
+
+### Join
+man hämtar saker från andra tabeller, man kan lagra datan i olika tabeller sedan kombinera dessa efter behov. 
+https://gyazo.com/f48db1686e91cc8478b55d63cae6896c - kontext bild för saker under.
+Inner join, returnerar värde som har matchande rader med villkor och kombinera, ex bara värde med PK eller FK
+left outer join, returnerar alla värde från vänsta table och matchande från höger
+right outer samma sak fast med höger ist för vänster
+full outer join, returnerar alla värde där det finns en match från både vänster o höger.
+
+### view
+virtuell tabell baserad på resultatet av en sql fråga, lagras inte som data utan körs vid använding
+säkerhet fördelar, begeränsar åtkomst till känslig data. man kan också filtrera vad man ska se i db.
+syntax https://gyazo.com/34eaf318734cce0d909aa549612b6f75
+CREATE VIEW namn AS select ... 
+bara för läsa information 
+
+
+
+
 
 
 
