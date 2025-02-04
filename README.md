@@ -194,6 +194,25 @@ syntax https://gyazo.com/34eaf318734cce0d909aa549612b6f75
 CREATE VIEW namn AS select ... 
 bara för läsa information 
 
+### express
+ramverk för api, ger möjlighet för server (localhost:x) 
+
+```js
+const express = require(`express`)
+// importerar in express och server fil
+const app = express()
+//skapar const för express kör
+app.listen(8000, () => {
+    console.log(`server is running`)
+});
+// startar servern
+
+app.get(`/`, (req,res) => {
+    res.send(`hello testing`);
+});
+// visar text på localserver
+```
+
 
 
 
