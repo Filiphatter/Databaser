@@ -213,6 +213,13 @@ app.get(`/`, (req,res) => {
 // visar text på localserver
 ```
 
+### Middlewares
+Funktioner som körs mellan att en req tas emot av servern och en respons skickas tillbaka, man skapar metoder och anropar en middleware som en parameter så körs den automatiskt.
+Man kan anvanda middlewares för spara en token ex för hålla sig inloggad, eller skapa loggar, eller för att komma till en endpoint.
+
+### request body
+enkryption i url och reducerar kod, https://gyazo.com/80a380756eea6f6dacb362167a925a27
+
 
 
 
