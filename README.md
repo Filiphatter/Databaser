@@ -243,6 +243,9 @@ ON customers.customerId=orders.customerId
 här får vi alla customer men det spelar ingen roll om de har en order eller inte.
 Ändrar man till RIGHT JOIN så försvinner kunderna som inte har en order. I grunden är det överlappningen av relationer som är det som spelar roll.
 
+SELECT product.name, product.id FROM products
+LEFT JOIN reviews
+on product.product_id=review.reviews_name
 
 
 
