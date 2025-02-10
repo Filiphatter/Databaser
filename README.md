@@ -220,7 +220,28 @@ Man kan anvanda middlewares för spara en token ex för hålla sig inloggad, ell
 ### request body
 enkryption i url och reducerar kod, https://gyazo.com/80a380756eea6f6dacb362167a925a27
 
+## Nils del 10/2
+Node - en kompliator för js, möjligheten att köra js på datorn utanför chrome, vi fick även package manager för att installera olika delar för projectet, eg Better-SqLite, biblotek alltså.
 
+Express - ger oss möjlighet att server, ger oss även http request alltså en komunikations väg, fråga => svar.
+
+### joins fast nils
+En join är en sort SELECT, vad det är att man kollar på två tabeler samtidigt, 
+
+kod del,
+SELECT orders.ordersId, customers.customerName, orders.orderDate 
+FROM orders
+INNER JOIN customer ON orders.customerId=customer.customerId;
+
+Vi vill titta på bla bla nla från orders och customer kör JOIN på orders, vi får bara rader där det finns gemensamma nämnaren av orders som är att en kund finns. iom order finns inte utan customer
+
+SELECT customers.customerName, orders.orderId 
+FROM customer
+LEFT JOIN orders
+ON customers.customerId=orders.customerId
+
+här får vi alla customer men det spelar ingen roll om de har en order eller inte.
+Ändrar man till RIGHT JOIN så försvinner kunderna som inte har en order. I grunden är det överlappningen av relationer som är det som spelar roll.
 
 
 
