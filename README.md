@@ -248,6 +248,54 @@ LEFT JOIN reviews
 on product.product_id=review.reviews_name
 
 
+### bill igen repetition
+- join
+  om man vill exempelvis visa två tabeller så fyller man kravet för en join.
+  Kravet är att man söker efter något gemensamt mellan tabellerna
+  Exempelvis både customer och orders har ID som är linkat med varandra.
+  Så vi kör en
+  ```SELECT customer.name, orders.customer FROM customers LEFT JOIN orders ON customer.id = orders.customer;```
+  Det efter ON (customer.id = orders.customer) är det som kopplar ihop genom FK eller PK.
+  Viktigt att tänka på att efter FROM så är det inte att man hämtar informationen där utan mer ett "och"
+  Ytterliggare kan vi lägga in order details också
+  ```SELECT customers.name, orders.orderId, orderDetails.product FROM customers LEFT JOIN orders ON customer.id = orders.customer LEFT JOIN orderDetails On OrderDetails.orderId = orders.orderid```
+
+- Skapande av fil
+  man öppnar mappen med bash, npm install -y för node
+  express install ish
+
+- middlewares
+    ofta en parameter inom funktioner för kolla något eller som check exempelvis en token
+    här är ett exempel med databas och express.
+  ```
+  // server.js
+  const exåress = require("express");
+  const database = require("better-sqlite3");
+  const app = express();
+  const port = 3000;
+  const URL = "localhost"
+
+  app.listen(port,URL, () => {
+  console.log("server running at ${URL}:${Port}");
+  });
+  
+  // man brukar alltid använda request, respose och next (next är för nästa middleware om det behövs)
+  function dbMiddleware(req, res, next){
+  req.db = new databas("database.db")
+  console.log("jag är i en middleware")
+  next()
+  };
+
+  app.get("/user", dbMiddleware, (req,res) => {
+  res.send('hello');
+  req.db.close();
+  });
+  // det som händer är att middleware aktiveras och refererar till funktionen och kör det inom dbMiddlware som kör databasen aktiveras och (tydlighet att middlware kör) kör sedan next() som är ett metodanrop vad som kommer näst i kedjan oftast en middlware till eller det efteråt
+  // Sedan kör den res.send som kör get funktionen som använder middlewaren i den.
+  ```
+    
+
+
 
 
 
