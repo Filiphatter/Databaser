@@ -293,7 +293,19 @@ on product.product_id=review.reviews_name
   // det som händer är att middleware aktiveras och refererar till funktionen och kör det inom dbMiddlware som kör databasen aktiveras och (tydlighet att middlware kör) kör sedan next() som är ett metodanrop vad som kommer näst i kedjan oftast en middlware till eller det efteråt
   // Sedan kör den res.send som kör get funktionen som använder middlewaren i den.
   ```
-    
+
+
+### Bill Cascade / Group by
+Aggregation används för sammanställa data i SQL finns inbyggda funktioner med Group by 
+```
+SELECT city, count(*) AS total_customers
+FROM  customers
+Group BY city
+HAVING COUNT (*) > 1;
+```
+Många vanliga sort by är eg PRICE, ProductName etc testa sig fram lite.
+
+Cascade is a auto activate function of sort, for instance if you have a parent table to one for instance Dad and child. If child had ON DELETE CASCADE  if the dad for instance got deleted the child would too. ON UPDATE CASCADE we can update tables when changes happens.
 
 
 
